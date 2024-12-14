@@ -46,6 +46,10 @@ function createLinkedList() {
 
   function tail() {
     let node = head;
+    if (!head) {
+      return null;
+    }
+    // If next node is null, we are on the last node
     while (node.nextNode !== null) {
       node = node.nextNode;
     }
@@ -53,7 +57,27 @@ function createLinkedList() {
     return node;
   }
 
-  return { append, prepend, size, getHead, tail };
+  function at(index) {
+    if (!Number.isInteger(index)) {
+      return "Error: Invalid Index";
+    }
+
+    if (!head || index >= size()) {
+      return null;
+    }
+    let node = head;
+
+    let currentIndex = 0;
+
+    while (currentIndex < index) {
+      node = node.nextNode;
+      currentIndex++;
+    }
+
+    return node;
+  }
+
+  return { append, prepend, size, getHead, tail, at };
 }
 
 export { createLinkedList };

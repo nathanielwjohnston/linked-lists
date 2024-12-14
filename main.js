@@ -12,4 +12,4 @@ list.append("dog");
 
 list.append("giraffe");
 
-console.log(list.tail().value);
+console.log(list.at(5).value);
