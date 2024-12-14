@@ -40,11 +40,20 @@ function createLinkedList() {
     return size;
   }
 
-  function head() {
+  function getHead() {
     return head;
   }
 
-  return { append, prepend, size };
+  function tail() {
+    let node = head;
+    while (node.nextNode !== null) {
+      node = node.nextNode;
+    }
+
+    return node;
+  }
+
+  return { append, prepend, size, getHead, tail };
 }
 
 export { createLinkedList };

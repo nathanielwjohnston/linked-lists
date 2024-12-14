@@ -10,4 +10,6 @@ list.append("dog");
 
 list.append("dog");
 
-console.log(list.size());
+list.append("giraffe");
+
+console.log(list.tail().value);
