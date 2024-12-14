@@ -13,6 +13,7 @@ function createLinkedList() {
       let node = head;
       while (true) {
         // If node is last node in list
+        console.log(`${node.value}`);
         if (node.nextNode === null) {
           node.nextNode = newNode;
           break;
@@ -21,10 +22,16 @@ function createLinkedList() {
         // To move to the next node in the list
         node = node.nextNode;
       }
+      console.log("\n");
     }
   }
 
-  return { append };
+  function prepend(value) {
+    const newNode = createNode({ value, nextNode: head });
+    head = newNode;
+  }
+
+  return { append, prepend };
 }
 
 export { createLinkedList };
