@@ -9,3 +9,5 @@ list.prepend("cat");
 list.append("dog");
 
 list.append("dog");
+
+console.log(list.size());
