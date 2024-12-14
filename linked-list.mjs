@@ -40,6 +40,10 @@ function createLinkedList() {
     return size;
   }
 
+  function head() {
+    return head;
+  }
+
   return { append, prepend, size };
 }
 
