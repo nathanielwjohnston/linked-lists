@@ -138,7 +138,40 @@ function createLinkedList() {
     }
   }
 
-  return { append, prepend, size, getHead, tail, at, pop, contains, find };
+  function toString() {
+    const values = [];
+
+    if (!head) {
+      return "null";
+    }
+
+    let node = head;
+    while (node) {
+      values.push(node.value);
+
+      node = node.nextNode;
+    }
+
+    let string;
+    for (let value of values) {
+      string = `${string ? string : ""} ( ${value} ) -> `;
+    }
+
+    return `${string} null`;
+  }
+
+  return {
+    append,
+    prepend,
+    size,
+    getHead,
+    tail,
+    at,
+    pop,
+    contains,
+    find,
+    toString,
+  };
 }
 
 export { createLinkedList };
