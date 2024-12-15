@@ -95,7 +95,24 @@ function createLinkedList() {
     }
   }
 
-  return { append, prepend, size, getHead, tail, at, pop };
+  function contains(value) {
+    if (!head) {
+      return false;
+    }
+
+    let node = head;
+
+    while (node) {
+      if (node.value === value) {
+        return true;
+      }
+      node = node.nextNode;
+    }
+
+    return false;
+  }
+
+  return { append, prepend, size, getHead, tail, at, pop, contains };
 }
 
 export { createLinkedList };

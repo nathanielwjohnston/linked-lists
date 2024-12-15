@@ -12,8 +12,6 @@ list.append("dog");
 
 list.append("giraffe");
 
-console.log(list.size());
+list.pop();
 
-console.log(list.pop());
-
-console.log(list.size());
+console.log(list.contains("giraffe"));
