@@ -1,5 +1,9 @@
 function createNode({ value = null, nextNode = null } = {}) {
-  return { value, nextNode };
+  function updateNextNode(newNode) {
+    nextNode = newNode;
+  }
+
+  return { value, nextNode, updateNextNode };
 }
 
 function createLinkedList() {
