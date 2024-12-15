@@ -112,7 +112,35 @@ function createLinkedList() {
     return false;
   }
 
-  return { append, prepend, size, getHead, tail, at, pop, contains };
+  function find(value) {
+    if (!head) {
+      return null;
+    }
+
+    let node = head;
+    let currentIndex = 0;
+    let found = false;
+
+    while (node) {
+      if (node.value === value) {
+        found = true;
+        break;
+      }
+
+      currentIndex++;
+      node = node.nextNode;
+    }
+
+    if (found) {
+      return currentIndex;
+    } else {
+      return null;
+    }
+  }
+
+  return { append, prepend, size, getHead, tail, at, pop, contains, find };
 }
 
 export { createLinkedList };
+
+// TODO: collapse some functions

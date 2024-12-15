@@ -14,4 +14,6 @@ list.append("giraffe");
 
 list.pop();
 
-console.log(list.contains("giraffe"));
+console.log(list.getHead());
+console.log(list.find("giraffe"));
+console.log(list.getHead());
