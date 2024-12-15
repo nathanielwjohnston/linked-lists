@@ -77,7 +77,25 @@ function createLinkedList() {
     return node;
   }
 
-  return { append, prepend, size, getHead, tail, at };
+  function pop() {
+    if (!head) {
+      return;
+    }
+
+    let node = head;
+
+    while (true) {
+      // If the next node is the last node
+      if (node.nextNode.nextNode === null) {
+        // Break the link to the last node
+        node.nextNode = null;
+        return;
+      }
+      node = node.nextNode;
+    }
+  }
+
+  return { append, prepend, size, getHead, tail, at, pop };
 }
 
 export { createLinkedList };

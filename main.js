@@ -12,4 +12,8 @@ list.append("dog");
 
 list.append("giraffe");
 
-console.log(list.at(5).value);
+console.log(list.size());
+
+console.log(list.pop());
+
+console.log(list.size());
