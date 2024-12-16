@@ -188,6 +188,32 @@ function createLinkedList() {
     }
   }
 
+  function removeAt(index) {
+    const listLength = size();
+    // Index starts at 0
+    if (listLength - 1 < index) {
+      return "Error: Index is out of range";
+    }
+
+    if (index === 0) {
+      head = head.nextNode;
+      return "Success";
+    }
+
+    let node = head;
+    let currentIndex = 0;
+
+    while (node) {
+      if (currentIndex === index - 1) {
+        node.nextNode = node.nextNode.nextNode;
+        return "Success";
+      }
+
+      node = node.nextNode;
+      currentIndex++;
+    }
+  }
+
   return {
     append,
     prepend,
@@ -200,6 +226,7 @@ function createLinkedList() {
     find,
     toString,
     insertAt,
+    removeAt,
   };
 }
 

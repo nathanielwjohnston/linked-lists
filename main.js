@@ -9,6 +9,6 @@ list.append("hamster");
 list.append("snake");
 list.append("turtle");
 
-console.log(list.insertAt("test", 6));
+console.log(list.removeAt(5));
 
 console.log(list.toString());
