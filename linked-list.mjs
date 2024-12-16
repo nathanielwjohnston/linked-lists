@@ -124,18 +124,14 @@ function createLinkedList() {
     while (node) {
       if (node.value === value) {
         found = true;
-        break;
+        return currentIndex;
       }
 
       currentIndex++;
       node = node.nextNode;
     }
 
-    if (found) {
-      return currentIndex;
-    } else {
-      return null;
-    }
+    return null;
   }
 
   function toString() {
@@ -154,7 +150,7 @@ function createLinkedList() {
 
     let string;
     for (let value of values) {
-      string = `${string ? string : ""} ( ${value} ) -> `;
+      string = `${string ? string : ""} ( ${value} ) ->`;
     }
 
     return `${string} null`;
@@ -167,13 +163,14 @@ function createLinkedList() {
       return "Error: Index is out of range";
     }
 
-    let node = head;
-    let currentIndex = 0;
-
     if (index === 0) {
       const newNode = createNode({ value, nextNode: head });
       head = newNode;
+      return "Success";
     }
+
+    let node = head;
+    let currentIndex = 0;
 
     while (node) {
       // If on node before where we want to insert new node
@@ -231,5 +228,3 @@ function createLinkedList() {
 }
 
 export { createLinkedList };
-
-// TODO: collapse some functions
