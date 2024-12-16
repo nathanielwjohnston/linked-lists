@@ -1,9 +1,5 @@
 function createNode({ value = null, nextNode = null } = {}) {
-  function updateNextNode(newNode) {
-    nextNode = newNode;
-  }
-
-  return { value, nextNode, updateNextNode };
+  return { value, nextNode };
 }
 
 function createLinkedList() {
@@ -164,6 +160,34 @@ function createLinkedList() {
     return `${string} null`;
   }
 
+  function insertAt(value, index) {
+    const listLength = size();
+    // Index starts at 0
+    if (listLength < index) {
+      return "Error: Index is out of range";
+    }
+
+    let node = head;
+    let currentIndex = 0;
+
+    if (index === 0) {
+      const newNode = createNode({ value, nextNode: head });
+      head = newNode;
+    }
+
+    while (node) {
+      // If on node before where we want to insert new node
+      if (currentIndex === index - 1) {
+        const newNode = createNode({ value, nextNode: node.nextNode });
+        node.nextNode = newNode;
+        return "Success";
+      }
+
+      node = node.nextNode;
+      currentIndex++;
+    }
+  }
+
   return {
     append,
     prepend,
@@ -175,6 +199,7 @@ function createLinkedList() {
     contains,
     find,
     toString,
+    insertAt,
   };
 }
 
